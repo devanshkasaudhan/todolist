@@ -7,8 +7,7 @@
 .body{
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff, #ff00ff, #ff0000);
-
+  background-image: url("background.jpg" )
 }
 
 button{
@@ -36,9 +35,9 @@ button{
 }
 
 input{
-  background-color: #96dece; /* Green */
+  background-color: #16121b; /* Green */
   border: 1px solid #4CAF50;
-  color: rgb(0, 0, 0);
+  color: rgb(250, 213, 213);
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
@@ -63,7 +62,7 @@ input{
 }
 
 .App-link {
-  color: #61dafb;
+  color: #0a1518;
 }
 .list{
   display: flex;
@@ -73,12 +72,13 @@ input{
   width: 70vw;
   height: 70vh;
   margin: 0 auto;
-  background: #96dece;
+  background: #091f1a;
 }
 .listItem{
   margin: 5px;
   padding: 5px;
-  columns: yellow;
+  columns: rgb(117, 117, 63);
+  color: white;
 }
 
 h1{
