@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
+import Nopage from "./components/Nopage";
 
 let globalId = 0;
 
@@ -21,34 +27,28 @@ function App() {
     }
   };
   return (
-    <div className="body centerItem">
-      <h1 id="Heading" className="centerItem">
-        To Do App
-      </h1>
-      <div className="centerItem">
-        <input
-          type="text"
-          placeholder="Enter a task"
-          value={task}
-          onKeyDown={enterkeytap}
-          onChange={(e) => {
-            setTask(e.target.value);
-          }}
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              deleteTodo={deleteTodo}
+              Todos={Todos}
+              setTask={setTask}
+              task={task}
+              addTodo={addTodo}
+              enterkeytap={enterkeytap}
+            />
+          }
         />
-        <br />
-        <button onClick={addTodo} >Add</button>
-        <ol className="list centerItem">
-          {Todos.map((item, index) => {
-            return (
-              <div key={item.id} className="listItem">
-                <li>{item.todo}</li>
-                <button onClick={() => deleteTodo(item.id)} className="itembtn">Delete</button>
-              </div>
-            );
-          })}
-        </ol>
-      </div>
-    </div>
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact/>} />
+        <Route path="/:id" element={<Nopage/>} />
+      </Routes>
+    </Router>
   );
 }
 
